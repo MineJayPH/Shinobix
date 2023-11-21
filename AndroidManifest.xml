@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="31" android:compileSdkVersionCodename="12" android:installLocation="auto" android:versionCode="32" android:versionName="3.3.2" package="com.narutosenki.downloader" platformBuildVersionCode="31" platformBuildVersionName="12">
-	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="31" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="33" android:compileSdkVersionCodename="13" android:installLocation="auto" android:versionCode="87" android:versionName="3.874.0" package="com.ejaybonjoc.shinobix" platformBuildVersionCode="33" platformBuildVersionName="13">
+	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="33" />
 	<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.RECORD_AUDIO" />
 	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 	<uses-permission android:name="android.permission.CAMERA" />
 	<uses-feature android:name="android.hardware.camera" android:required="false" />
+	<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -21,8 +21,19 @@
 		<package android:name="app.phantom" />
 		<package android:name="com.google.android.gms.policy_cast_dynamite" />
 		<package android:name="com.facebook.katana" />
+		<package android:name="com.android.vending" />
+		<package android:name="com.amazon.venezia" />
+		<package android:name="com.sec.android.app.samsungapps" />
+		<package android:name="com.huawei.appmarket" />
 		<intent>
 			<action android:name="com.applovin.am.intent.action.APPHUB_SERVICE" />
+		</intent>
+		<package android:name="com.google.android.apps.tv.launcherx" />
+		<package android:name="com.google.android.tvlauncher" />
+		<package android:name="com.google.android.tvrecommendations" />
+		<package android:name="com.appnext.core" />
+		<intent>
+			<action android:name="android.intent.action.MAIN" />
 		</intent>
 		<intent>
 			<action android:name="android.intent.action.VIEW" />
@@ -32,117 +43,126 @@
 		<intent>
 			<action android:name="android.support.customtabs.action.CustomTabsService" />
 		</intent>
-		<intent>
-			<action android:name="android.intent.action.MAIN" />
-		</intent>
-		<package android:name="com.appnext.core" />
 	</queries>
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="com.applovin.array.apphub.permission.BIND_APPHUB_SERVICE" />
+	<uses-feature android:name="android.software.leanback" android:required="false" />
+	<uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 	<uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
 	<uses-feature android:glEsVersion="0x20000" android:required="true" />
-	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-	<application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:fullBackupContent="false" android:icon="@drawable/ic_launcher" android:label="ApkHot " android:name="com.narutosenki.downloader.config" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+	<permission android:name="com.ejaybonjoc.shinobix.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature" />
+	<uses-permission android:name="com.ejaybonjoc.shinobix.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+	<application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:fullBackupContent="false" android:icon="@drawable/ic_launcher" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.config" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
 		<meta-data android:name="com.wortise.ads.utm" android:value="ac24" />
 		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 		<uses-library android:name="com.google.android.maps" android:required="false" />
 		<meta-data android:name="applovin.sdk.key" android:value="QXJ4G1tUsXFv2w7FhlmZBcq0oezJKyxSv5wn5Rl_P5HAfHAwCpJkEsga_B48xsOg_iBZBw5WFwBIETlkd-hSBa" />
 		<uses-library android:name="org.apache.http.legacy" android:required="false" />
-		<meta-data android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME" android:value="com.narutosenki.downloader.CastOptionsProvider" />
+		<activity android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" android:name="com.ironsource.sdk.controller.ControllerActivity" />
+		<activity android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" android:name="com.ironsource.sdk.controller.InterstitialActivity" android:theme="@android:style/Theme.Translucent" />
+		<activity android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" android:name="com.ironsource.sdk.controller.OpenUrlActivity" android:theme="@android:style/Theme.Translucent" />
+		<provider android:authorities="com.ejaybonjoc.shinobix.IronsourceLifecycleProvider" android:name="com.ironsource.lifecycle.IronsourceLifecycleProvider" />
+		<meta-data android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME" android:value="com.ejaybonjoc.shinobix.CastOptionsProvider" />
 		<meta-data android:name="android.app.default_searchable" android:value=".SearchableActivity" />
-		<provider android:authorities="com.narutosenki.downloader.MySuggestionProvider" android:exported="false" android:name="com.narutosenki.downloader.MySuggestionProvider" />
+		<provider android:authorities="com.ejaybonjoc.shinobix.MySuggestionProvider" android:exported="false" android:name="com.ejaybonjoc.shinobix.MySuggestionProvider" />
 		<meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="barcode" />
-		<provider android:authorities="com.narutosenki.downloader.stickercontentprovider" android:enabled="false" android:exported="true" android:name="com.narutosenki.downloader.StickerContentProvider" android:readPermission="com.whatsapp.sticker.READ" />
-		<service android:name="com.narutosenki.downloader.s_widget_vistafb" android:permission="android.permission.BIND_REMOTEVIEWS" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:label="ApkHot " android:name="com.narutosenki.downloader.preinicio">
+		<receiver android:exported="false" android:name="com.ejaybonjoc.shinobix.widget_vistafb">
+			<intent-filter>
+				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+			</intent-filter>
+			<meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_vistafb_config" />
+		</receiver>
+		<provider android:authorities="com.ejaybonjoc.shinobix.stickercontentprovider" android:enabled="false" android:exported="true" android:name="com.ejaybonjoc.shinobix.StickerContentProvider" android:readPermission="com.whatsapp.sticker.READ" />
+		<service android:name="com.ejaybonjoc.shinobix.s_widget_vistafb" android:permission="android.permission.BIND_REMOTEVIEWS" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.preinicio">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
 		<activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent" />
-		<activity android:exported="false" android:launchMode="singleTop" android:name="com.narutosenki.downloader.SearchableActivity">
+		<activity android:exported="false" android:launchMode="singleTop" android:name="com.ejaybonjoc.shinobix.SearchableActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.SEARCH" />
 			</intent-filter>
 			<meta-data android:name="android.app.searchable" android:resource="@xml/searchable" />
 		</activity>
-		<activity android:exported="true" android:label="ApkHot " android:launchMode="singleTask" android:name="com.narutosenki.downloader.ExpandedControlsActivity">
+		<activity android:exported="true" android:label="Shinobix" android:launchMode="singleTask" android:name="com.ejaybonjoc.shinobix.ExpandedControlsActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 			</intent-filter>
 		</activity>
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_qr" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_vistafb" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_url" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_html" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_video" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_video_exoplayer" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_video_playerjs" android:windowSoftInputMode="stateHidden" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_video_pro" android:windowSoftInputMode="adjustPan" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_radio" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_buscchats" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_buscchats_lista" />
-		<activity android:label="ApkHot " android:name="com.narutosenki.downloader.t_menugrid" />
-		<activity android:label="ApkHot " android:name="com.narutosenki.downloader.t_submenu" />
-		<activity android:label="ApkHot " android:name="com.narutosenki.downloader.t_submenu_ultimas" />
-		<activity android:label="ApkHot " android:name="com.narutosenki.downloader.t_rss" />
-		<activity android:label="ApkHot " android:name="com.narutosenki.downloader.t_rssdetalle" />
-		<activity android:label="ApkHot " android:name="com.narutosenki.downloader.t_oficinas" />
-		<activity android:label="ApkHot " android:name="com.narutosenki.downloader.t_chat_contra" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_chat" android:windowSoftInputMode="adjustResize" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.preperfil" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.chat_perfil" />
-		<activity android:label="ApkHot " android:name="com.narutosenki.downloader.guardarprimeravez" />
-		<activity android:label="ApkHot " android:name="com.narutosenki.downloader.eliminarperfil" />
-		<activity android:label="ApkHot " android:name="com.narutosenki.downloader.codigo" />
-		<activity android:label="ApkHot " android:name="com.narutosenki.downloader.chat" />
-		<activity android:label="ApkHot " android:name="com.narutosenki.downloader.contactar" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_buscador_form" />
-		<activity android:label="ApkHot " android:name="com.narutosenki.downloader.cats" />
-		<activity android:label="ApkHot " android:name="com.narutosenki.downloader.t_buscador" />
-		<activity android:label="ApkHot " android:name="com.narutosenki.downloader.t_detalle" />
-		<activity android:label="ApkHot " android:name="com.narutosenki.downloader.t_menu" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_mapa_web" />
-		<activity android:label="ApkHot " android:name="com.narutosenki.downloader.t_and" />
-		<activity android:label="ApkHot " android:name="com.narutosenki.downloader.finalizar" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.notifs" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.notifs_cats" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.privados" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.profile" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.fotoperfil" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.fotogal" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_buscusus" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_buscvideos" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_buscvideo" android:windowSoftInputMode="adjustPan" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_gal" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_gal_foto" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="ApkHot " android:name="com.narutosenki.downloader.t_card" />
-		<service android:name="com.narutosenki.downloader.s_cargar_icos" />
-		<service android:name="com.narutosenki.downloader.s_cargar_sliderheader" />
-		<service android:name="com.narutosenki.downloader.s_cargar_fondo" />
-		<service android:name="com.narutosenki.downloader.s_cargar_icos_gen" />
-		<service android:name="com.narutosenki.downloader.s_guardarperfil" />
-		<service android:name="com.narutosenki.downloader.s_mediaplayer_exo" />
-		<service android:name="com.narutosenki.downloader.RegistrationIntentService" />
-		<provider android:authorities="com.narutosenki.downloader.bd_provider" android:exported="false" android:multiprocess="true" android:name="com.narutosenki.downloader.bd_provider" />
-		<provider android:authorities="com.narutosenki.downloader.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_qr" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_vistafb" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_url" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_html" />
+		<activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_video" android:supportsPictureInPicture="true" />
+		<activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_video_exoplayer" android:supportsPictureInPicture="true" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_video_playerjs" android:windowSoftInputMode="stateHidden" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_video_pro" android:windowSoftInputMode="adjustPan" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_radio" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_buscchats" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_buscchats_lista" />
+		<activity android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_menugrid" />
+		<activity android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_submenu" />
+		<activity android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_submenu_ultimas" />
+		<activity android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_rss" />
+		<activity android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_rssdetalle" />
+		<activity android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_oficinas" />
+		<activity android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_chat_contra" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_chat" android:windowSoftInputMode="adjustResize" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.preperfil" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.chat_perfil" />
+		<activity android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.guardarprimeravez" />
+		<activity android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.eliminarperfil" />
+		<activity android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.codigo" />
+		<activity android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.chat" />
+		<activity android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.contactar" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_buscador_form" />
+		<activity android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.cats" />
+		<activity android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_buscador" />
+		<activity android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_detalle" />
+		<activity android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_menu" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_mapa_web" />
+		<activity android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_and" />
+		<activity android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.finalizar" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.notifs" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.notifs_cats" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.privados" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.profile" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.fotoperfil" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.fotogal" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_buscusus" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_buscvideos" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_buscvideo" android:windowSoftInputMode="adjustPan" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_gal" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_gal_foto" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="Shinobix" android:name="com.ejaybonjoc.shinobix.t_card" />
+		<service android:name="com.ejaybonjoc.shinobix.s_cargar_icos" />
+		<service android:name="com.ejaybonjoc.shinobix.s_cargar_sliderheader" />
+		<service android:name="com.ejaybonjoc.shinobix.s_cargar_fondo" />
+		<service android:name="com.ejaybonjoc.shinobix.s_cargar_icos_gen" />
+		<service android:name="com.ejaybonjoc.shinobix.s_guardarperfil" />
+		<service android:name="com.ejaybonjoc.shinobix.s_mediaplayer_exo" />
+		<service android:name="com.ejaybonjoc.shinobix.RegistrationIntentService" />
+		<provider android:authorities="com.ejaybonjoc.shinobix.bd_provider" android:exported="false" android:multiprocess="true" android:name="com.ejaybonjoc.shinobix.bd_provider" />
+		<provider android:authorities="com.ejaybonjoc.shinobix.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
 			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths" />
 		</provider>
-		<receiver android:name="com.narutosenki.downloader.alarma_rss" />
-		<service android:exported="false" android:name="com.narutosenki.downloader.MyFcmListenerService">
+		<receiver android:name="com.ejaybonjoc.shinobix.alarma_rss" />
+		<service android:exported="false" android:name="com.ejaybonjoc.shinobix.MyFcmListenerService">
 			<intent-filter>
 				<action android:name="com.google.firebase.MESSAGING_EVENT" />
 			</intent-filter>
 		</service>
-		<service android:exported="false" android:name="com.narutosenki.downloader.MyInstanceIDListenerService">
+		<service android:exported="false" android:name="com.ejaybonjoc.shinobix.MyInstanceIDListenerService">
 			<intent-filter>
 				<action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
 			</intent-filter>
 		</service>
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:name="com.facebook.ads.AudienceNetworkActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 		<meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id" />
-		<activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="ApkHot " android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme" />
+		<activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="Shinobix" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme" />
 		<activity android:exported="true" android:name="com.facebook.CustomTabActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.VIEW" />
@@ -154,41 +174,51 @@
 				<action android:name="android.intent.action.VIEW" />
 				<category android:name="android.intent.category.DEFAULT" />
 				<category android:name="android.intent.category.BROWSABLE" />
-				<data android:host="cct.com.narutosenki.downloader" android:scheme="fbconnect" />
+				<data android:host="cct.com.ejaybonjoc.shinobix" android:scheme="fbconnect" />
 			</intent-filter>
 		</activity>
 		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.adcolony.sdk.AdColonyInterstitialActivity" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
 		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.adcolony.sdk.AdColonyAdViewActivity" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
 		<activity android:name="com.facebook.CustomTabMainActivity" />
-		<receiver android:exported="false" android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver" />
-		<service android:exported="false" android:foregroundServiceType="mediaPlayback" android:name="com.google.android.gms.cast.framework.media.MediaNotificationService" />
-		<service android:exported="false" android:name="com.google.android.gms.cast.framework.ReconnectionService" />
 		<meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true" />
-		<activity android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" android:name="com.ironsource.sdk.controller.ControllerActivity" />
-		<activity android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" android:name="com.ironsource.sdk.controller.InterstitialActivity" android:theme="@android:style/Theme.Translucent" />
-		<activity android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" android:name="com.ironsource.sdk.controller.OpenUrlActivity" android:theme="@android:style/Theme.Translucent" />
-		<provider android:authorities="com.narutosenki.downloader.IronsourceLifecycleProvider" android:name="com.ironsource.lifecycle.IronsourceLifecycleProvider" />
+		<receiver android:exported="false" android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver" />
+		<service android:exported="false" android:name="com.google.android.gms.cast.framework.ReconnectionService" />
+		<activity android:configChanges="orientation|screenSize" android:hardwareAccelerated="true" android:name="com.ironsource.mediationsdk.testSuite.TestSuiteActivity" android:theme="@android:style/Theme.NoTitleBar" />
 		<activity android:name="com.wortise.ads.consent.ConsentActivity" android:theme="@style/Theme.Wortise.DialogActivity" />
 		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.wortise.ads.events.ClickHandlerActivity" android:theme="@style/Theme.Wortise.Transparent" />
 		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.wortise.ads.interstitial.InterstitialActivity" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
 		<activity android:name="com.wortise.ads.push.PushInterstitialActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-		<provider android:authorities="com.narutosenki.downloader.wortise.lifecycle-activity" android:exported="false" android:multiprocess="true" android:name="com.wortise.ads.lifecycle.ActivityLifecycleInitializer" />
+		<provider android:authorities="com.ejaybonjoc.shinobix.wortise.lifecycle-activity" android:exported="false" android:multiprocess="true" android:name="com.wortise.ads.lifecycle.ActivityLifecycleInitializer" />
 		<receiver android:enabled="true" android:exported="true" android:name="com.wortise.ads.geofencing.GeofenceBroadcastReceiver" />
-		<provider android:authorities="com.narutosenki.downloader.AudienceNetworkContentProvider" android:exported="false" android:name="com.facebook.ads.AudienceNetworkContentProvider" />
-		<provider android:authorities="com.narutosenki.downloader.applovininitprovider" android:exported="false" android:initOrder="101" android:name="com.applovin.sdk.AppLovinInitProvider" />
+		<activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="false" android:name="com.facebook.ads.AudienceNetworkActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+		<provider android:authorities="com.ejaybonjoc.shinobix.AudienceNetworkContentProvider" android:exported="false" android:name="com.facebook.ads.AudienceNetworkContentProvider" />
+		<provider android:authorities="com.ejaybonjoc.shinobix.applovininitprovider" android:exported="false" android:initOrder="101" android:name="com.applovin.sdk.AppLovinInitProvider" />
 		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:hardwareAccelerated="true" android:launchMode="singleTop" android:name="com.applovin.adview.AppLovinFullscreenActivity" android:screenOrientation="behind" />
+		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:hardwareAccelerated="true" android:launchMode="singleTop" android:name="com.applovin.adview.AppLovinFullscreenThemedActivity" android:screenOrientation="behind" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.applovin.sdk.AppLovinWebViewActivity" />
-		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.applovin.mediation.hybridAds.MaxHybridMRecAdActivity" />
-		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.applovin.mediation.hybridAds.MaxHybridNativeAdActivity" />
+		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.applovin.mediation.hybridAds.MaxHybridMRecAdActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.applovin.mediation.hybridAds.MaxHybridNativeAdActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.applovin.mediation.MaxDebuggerActivity" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme" />
 		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.applovin.mediation.MaxDebuggerDetailActivity" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme" />
 		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.applovin.mediation.MaxDebuggerMultiAdActivity" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme" />
 		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.applovin.mediation.MaxDebuggerAdUnitsListActivity" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme" />
+		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.applovin.mediation.MaxDebuggerAdUnitWaterfallsListActivity" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme" />
 		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.applovin.mediation.MaxDebuggerAdUnitDetailActivity" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme" />
+		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.applovin.mediation.MaxDebuggerTcfInfoListActivity" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme" />
+		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.applovin.mediation.MaxDebuggerTcfStringActivity" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme" />
+		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.applovin.mediation.MaxDebuggerTcfVendorDetailListActivity" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme" />
 		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.applovin.mediation.MaxDebuggerTestLiveNetworkActivity" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme" />
 		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.applovin.mediation.MaxDebuggerTestModeNetworkActivity" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme" />
-		<service android:exported="false" android:name="com.applovin.impl.sdk.utils.AppKilledService" android:stopWithTask="false" />
+		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.applovin.mediation.MaxDebuggerWaterfallKeywordsActivity" android:theme="@style/com.applovin.mediation.MaxDebuggerActivity.Theme" />
+		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.applovin.creative.MaxCreativeDebuggerActivity" android:theme="@style/com.applovin.creative.CreativeDebuggerActivity.Theme" />
+		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.applovin.creative.MaxCreativeDebuggerDisplayedAdActivity" android:theme="@style/com.applovin.creative.CreativeDebuggerActivity.Theme" />
 		<service android:exported="false" android:name="com.applovin.impl.adview.activity.FullscreenAdService" android:stopWithTask="false" />
+		<activity android:exported="false" android:name="com.google.android.tv.ads.controls.FallbackImageActivity" android:theme="@style/Theme.AppCompat.NoActionBar.Translucent" />
+		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.appnext.ads.interstitial.InterstitialActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+		<activity android:exported="false" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.appnext.ads.fullscreen.FullscreenActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+		<activity android:exported="false" android:name="com.appnext.banners.BannerActivity" android:screenOrientation="portrait" />
+		<activity android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTop" android:name="com.appnext.core.ResultActivity" />
+		<activity android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTop" android:name="com.appnext.core.result.ResultPageActivity" android:screenOrientation="portrait" />
 		<receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver" />
 		<service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService" />
 		<service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE" />
@@ -197,7 +227,7 @@
 			<meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar" />
 			<meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar" />
 		</service>
-		<provider android:authorities="com.narutosenki.downloader.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider" />
+		<provider android:authorities="com.ejaybonjoc.shinobix.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider" />
 		<service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService" />
 		<service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
 			<intent-filter android:priority="-500">
@@ -216,8 +246,18 @@
 				<action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
 			</intent-filter>
 		</service>
+		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:exported="false" android:hardwareAccelerated="true" android:name="com.unity3d.services.ads.adunit.AdUnitActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:exported="false" android:hardwareAccelerated="true" android:name="com.unity3d.services.ads.adunit.AdUnitTransparentActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:exported="false" android:hardwareAccelerated="false" android:name="com.unity3d.services.ads.adunit.AdUnitTransparentSoftwareActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:exported="false" android:hardwareAccelerated="false" android:name="com.unity3d.services.ads.adunit.AdUnitSoftwareActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+		<provider android:authorities="com.ejaybonjoc.shinobix.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+			<meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup" />
+			<meta-data android:name="com.unity3d.services.core.configuration.AdsSdkInitializer" android:value="androidx.startup" />
+			<meta-data android:name="androidx.work.WorkManagerInitializer" android:value="androidx.startup" />
+			<meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup" />
+		</provider>
 		<activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-		<provider android:authorities="com.narutosenki.downloader.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider" />
+		<provider android:authorities="com.ejaybonjoc.shinobix.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider" />
 		<activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:name="com.startapp.sdk.adsbase.consent.ConsentActivity" android:theme="@android:style/Theme.Translucent" />
 		<activity android:name="com.startapp.sdk.ads.list3d.List3DActivity" android:theme="@android:style/Theme" />
 		<activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:name="com.startapp.sdk.ads.interstitials.OverlayActivity" android:theme="@android:style/Theme.Translucent" />
@@ -228,18 +268,17 @@
 				<action android:name="android.intent.action.BOOT_COMPLETED" />
 			</intent-filter>
 		</receiver>
-		<provider android:authorities="com.narutosenki.downloader.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider" />
+		<provider android:authorities="com.ejaybonjoc.shinobix.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider" />
 		<receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
 			<intent-filter>
 				<action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED" />
 			</intent-filter>
 		</receiver>
-		<provider android:authorities="com.narutosenki.downloader.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
-			<meta-data android:name="androidx.work.WorkManagerInitializer" android:value="androidx.startup" />
-			<meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup" />
-			<meta-data android:name="com.unity3d.services.core.configuration.AdsSdkInitializer" android:value="androidx.startup" />
-			<meta-data android:name="com.unity3d.services.identifiers.UnitySharedLibraryInitializer" android:value="androidx.startup" />
-		</provider>
+		<receiver android:exported="false" android:name="com.facebook.AuthenticationTokenManager$CurrentAuthenticationTokenChangedBroadcastReceiver">
+			<intent-filter>
+				<action android:name="com.facebook.sdk.ACTION_CURRENT_AUTHENTICATION_TOKEN_CHANGED" />
+			</intent-filter>
+		</receiver>
 		<service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService" />
 		<service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE" />
 		<service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService" />
@@ -289,16 +328,7 @@
 		</service>
 		<service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE" />
 		<receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver" />
-		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:exported="false" android:hardwareAccelerated="true" android:name="com.unity3d.services.ads.adunit.AdUnitActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:exported="false" android:hardwareAccelerated="true" android:name="com.unity3d.services.ads.adunit.AdUnitTransparentActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
-		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:exported="false" android:hardwareAccelerated="false" android:name="com.unity3d.services.ads.adunit.AdUnitTransparentSoftwareActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
-		<activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:exported="false" android:hardwareAccelerated="false" android:name="com.unity3d.services.ads.adunit.AdUnitSoftwareActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 		<service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService" />
-		<service android:multiprocess="true" android:name="com.appnext.core.AdsService" />
-		<activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.appnext.ads.interstitial.InterstitialActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-		<activity android:hardwareAccelerated="true" android:multiprocess="true" android:name="com.appnext.ads.fullscreen.FullscreenActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-		<activity android:name="com.appnext.banners.BannerActivity" android:screenOrientation="portrait" />
-		<activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.appnext.core.ResultActivity" />
-		<activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.appnext.core.result.ResultPageActivity" android:screenOrientation="portrait" />
 	</application>
 </manifest>
+		
