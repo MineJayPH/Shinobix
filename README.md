@@ -1,2 +1,2 @@
-# ApkHot
-Download All Your Favorite Games in one App
+# Shinobix
+Your All in One Naruto Senki Downloader
